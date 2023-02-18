@@ -9,6 +9,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/test-cdk
-      - uses: ./.github/actions/test-app
+      - uses: ./.github/actions/on_push_test_cdk.yml
+      - uses: ./.github/actions/on_push_test_app.yml
     timeout-minutes: 30
