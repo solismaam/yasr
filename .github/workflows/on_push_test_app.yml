@@ -1,0 +1,22 @@
+name: Test App when pushing to branches other than main
+on:
+  push:
+    branches-ignore:
+      - main
+    paths:
+      - app/**
+  workflow_call:
+    branches:
+      - main
+    
+    
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test App
+        run: |
+          echo "Test"
+    timeout-minutes: 10

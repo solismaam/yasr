@@ -1,0 +1,21 @@
+name: Test CDK when pushing to branches other than main
+on:
+  push:
+    branches-ignore:
+      - main
+    paths:
+      - cdk/**
+  workflow_call:
+    branches:
+      - main
+    
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test CDK
+        run: |
+          echo "Test"
+    timeout-minutes: 10
