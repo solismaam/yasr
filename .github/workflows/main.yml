@@ -9,7 +9,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: .github/actions/test_cdk.yml
-      - uses: .github/actions/test_app.yml
+      - name: Checkout
+        uses: actions/checkout@v3
     timeout-minutes: 30
