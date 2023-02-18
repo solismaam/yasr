@@ -9,6 +9,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/on_push_test_cdk.yml
-      - uses: ./.github/actions/on_push_test_app.yml
+      - uses: actions/checkout@v2
+      - uses: .github/actions/test_cdk.yml
+      - uses: .github/actions/test_app.yml
     timeout-minutes: 30
