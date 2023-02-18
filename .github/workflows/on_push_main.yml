@@ -1,0 +1,14 @@
+name: Test CDK and App when pushing to main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/actions/test-cdk
+      - uses: ./.github/actions/test-app
+    timeout-minutes: 30
