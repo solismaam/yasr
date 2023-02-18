@@ -1,14 +1,13 @@
-name: Test App when pushing to branches other than main
+name: Test CDK
 on:
   push:
     branches-ignore:
       - main
     paths:
-      - app/**
+      - cdk/**
   workflow_call:
     branches:
       - main
-    
     
 
 jobs:
@@ -16,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Test App
+      - name: Test CDK
         run: |
           echo "Test"
     timeout-minutes: 10
