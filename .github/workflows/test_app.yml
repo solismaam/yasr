@@ -6,8 +6,6 @@ on:
     paths:
       - app/**
   workflow_call:
-    branches:
-      - main
     
     
 

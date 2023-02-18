@@ -6,8 +6,6 @@ on:
     paths:
       - cdk/**
   workflow_call:
-    branches:
-      - main
     
 
 jobs:
