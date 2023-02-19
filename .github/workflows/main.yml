@@ -10,4 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:  
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/poetry
+      - name: Build images
+        run: |
+          docker buildx create --use --driver=docker-container
+          docker buildx bake -f ./docker/gunicorn/Dockerfile --set *.cache-to="type=gha,mode=max" --set *.cache-from="type=gha" --load
