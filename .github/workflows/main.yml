@@ -9,4 +9,4 @@ jobs:
   poetry:
     runs-on: ubuntu-latest
     steps:  
-      - uses: .github/actions/poetry
+      - uses: ./.github/actions/poetry
