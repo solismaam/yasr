@@ -2,8 +2,6 @@ name: Test CDK and App when pushing to main
 
 on:
   push:
-    branches:
-      - main
 
 
 jobs:
@@ -27,4 +25,3 @@ jobs:
           ls .
           docker images
           docker ps -a
-          
