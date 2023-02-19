@@ -1,0 +1,12 @@
+name: Poetry
+description: Poetry environment with GDAL
+inputs:
+  command:
+    description: Command to run
+    required: true
+    default: poetry --version
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.command }}
