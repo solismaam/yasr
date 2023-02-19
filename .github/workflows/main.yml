@@ -20,6 +20,8 @@ jobs:
           load: true
           set: |
             *.context=.
-            *.tags=${{ env.GHCR_IMAGE }}:latest
+            *.tags=poetry:latest
             *.cache-from=type=gha
             *.cache-to=type=gha,mode=max
+      - run: |
+          find .
