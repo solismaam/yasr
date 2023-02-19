@@ -10,17 +10,24 @@ jobs:
     steps:  
       - uses: actions/checkout@v3
       - uses: docker/setup-buildx-action@v2
-      - uses: docker/bake-action@v2
+      - uses: docker/build-push-action@v4
         with:
-          files: |
-            ./docker-compose.yml
-          targets: poetry
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          context: .
+          file: docker/ghacontainer/Dockerfile
           load: true
-          set: |
-
-            *.context=.
-            *.cache-from=type=gha
-            *.cache-to=type=gha,mode=min
+          tags: ghacontainer:local
+      # - uses: docker/bake-action@v2
+      #   with:
+      #     files: |
+      #       ./docker-compose.yml
+      #     targets: gha
+      #     load: true
+      #     set: |
+      #       *.context=.
+      #       *.cache-from=type=gha
+      #       *.cache-to=type=gha,mode=min
       - run: |
           ls .
           docker images

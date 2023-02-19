@@ -1,0 +1,29 @@
+// For template details, see https://github.com/microsoft/vscode-dev-containers/tree/main/container-templates
+// For image details, see https://github.com/devcontainers/images/tree/main/src/python
+// For config options, see https://code.visualstudio.com/docs/remote/devcontainerjson-reference
+{
+	"name": "TornaX Client",
+	"image": "mcr.microsoft.com/vscode/devcontainers/python:3.11-bullseye",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"redhat.vscode-yaml"
+			]
+		}
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/devcontainers-contrib/features/poetry:2": {}
+	},
+	"mounts": [],
+	"postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
+	"remoteEnv": {},
+	"remoteUser": "vscode",
+	"runArgs": [
+		// Turn off user namespace within the container (SELINUX)
+		"--security-opt",
+		"label:disable"
+	]
+}

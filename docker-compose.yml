@@ -1,5 +1,5 @@
 services:
-  poetry:
+  gha:
     build:
       context: .
       dockerfile: docker/gunicorn/Dockerfile
