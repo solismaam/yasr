@@ -2,7 +2,8 @@ name: Test CDK and App when pushing to main
 
 on:
   push:
-
+  workflow_dispatch:
+    
 
 jobs:
   poetry:
