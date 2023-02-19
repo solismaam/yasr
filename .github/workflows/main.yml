@@ -13,4 +13,4 @@ jobs:
       - name: Build images
         run: |
           docker buildx create --use --driver=docker-container
-          docker buildx bake -f ./docker/gunicorn/Dockerfile --set *.cache-to="type=gha,mode=max" --set *.cache-from="type=gha" --load
+          docker buildx build -f ./docker/gunicorn/Dockerfile --set *.cache-to="type=gha,mode=max" --set *.cache-from="type=gha" --load
