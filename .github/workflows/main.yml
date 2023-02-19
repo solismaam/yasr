@@ -11,9 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:  
       - uses: actions/checkout@v3
-      - uses: docker/setup-buildx-action@v1
-      - name: Build images
-        run: |
-          docker buildx create --use --driver=docker-container
-          docker buildx bake -f ./docker-compose.yml --set *.cache-to="type=gha,mode=max" --set *.cache-from="type=gha" --load
-          ls -ltra
+      - uses: docker/setup-buildx-action@v2
+      - uses: docker/bake-action@v2
+        with:
+          files: |
+            ./docker-compose.yml
+          targets: poetry
+          load: true
+          set: |
+            *.context=.
+            *.tags=${{ env.GHCR_IMAGE }}:latest
+            *.cache-from=type=gha
+            *.cache-to=type=gha,mode=max
