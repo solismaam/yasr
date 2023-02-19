@@ -13,4 +13,4 @@ jobs:
       - name: Build images
         run: |
           docker buildx create --use --driver=docker-container
-          docker buildx build -f ./docker-compose.yml --set *.cache-to="type=gha,mode=max" --set *.cache-from="type=gha" --load
+          docker buildx bake -f ./docker-compose.yml --set *.cache-to="type=gha,mode=max" --set *.cache-from="type=gha" --load
