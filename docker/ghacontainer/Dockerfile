@@ -7,5 +7,5 @@ ARG USER_GID=1000
 RUN addgroup --gid ${USER_GID} ${USER}
 RUN adduser --disabled-password --gecos Runner --gid ${USER_GID} --shell /bin/bash --uid ${USER_UID} $USER
 
-COPY ../gunicorn/installPackages.sh /tmp/installPackages.sh
+COPY docker/gunicorn/installPackages.sh /tmp/installPackages.sh
 RUN bash /tmp/installPackages.sh && rm /tmp/installPackages.sh
