@@ -1,0 +1,5 @@
+services:
+  poetry:
+    build:
+      context: .
+      dockerfile: docker/gunicorn/Dockerfile
