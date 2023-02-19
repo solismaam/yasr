@@ -24,3 +24,5 @@ jobs:
             *.cache-to=type=gha,mode=min
       - run: |
           ls .
+          docker images
+          docker ps -a
